@@ -14,29 +14,27 @@ public class GameDisplay {
         boolean check = true;
         Ball ball = new Ball();
         Scanner sc = new Scanner(System.in);
-        int num = 0;
+        String num;
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요.");
         System.out.println("1. 게임 시작하기 2. 종료하기");
         int startExit = sc.nextInt();
+        sc.nextLine();
         switch (startExit) {
             case 1:
                 //기능
                 while (check) {
                     System.out.println("숫자를 입력해주세요");
-                    try {
-                        num = sc.nextInt();
-                        validator = new DigitsCheck();
-                        if (validator.validation(num)){
-                            validator = new DuplicateCheck();
-                            validator.validation(num);
+                    num = sc.nextLine();
+                    Validator[] validators = {new DigitsCheck(), new DuplicateCheck()};
+                    for (Validator validator : validators) {
+                        if (!validator.validation(num)) {
+                            break;
                         }
-                    } catch (InputMismatchException e) {
-                        System.out.println("[Error] 숫자를 입력해주세요");
-
                     }
+
                 }
             case 2:
-                return;
+                check=false;
 
         }
     }

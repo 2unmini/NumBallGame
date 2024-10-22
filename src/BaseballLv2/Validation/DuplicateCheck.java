@@ -6,8 +6,8 @@ import java.util.stream.Stream;
 
 public class DuplicateCheck implements Validator {
     @Override
-    public boolean validation(int num) {
-        int[] nums = Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).toArray();
+    public boolean validation(String num) {
+        int[] nums = Stream.of(num.split("")).mapToInt(Integer::parseInt).toArray();
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             set.add(nums[i]);
