@@ -9,11 +9,14 @@ public class GameDisplay {
     public void gameStart(){
         BaseballGame baseballGame=new BaseballGame();
         System.out.println("숫자를 입력해주세요");
+        int num = 0;
         try {
-            validator.duplicateCheck(sc.nextInt());
+            num= sc.nextInt();
+            validator.duplicateCheck(num);
         }catch (InputMismatchException e){
             System.out.println("[Error] 숫자를 입력해주세요");
         }
+        baseballGame.printStrikeBall(baseballGame.countStrike(num), baseballGame.countBall(num) );
 
 
 
