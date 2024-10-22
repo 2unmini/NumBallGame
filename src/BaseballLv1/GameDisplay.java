@@ -7,7 +7,7 @@ public class GameDisplay {
     Scanner sc = new Scanner(System.in);
     Validator validator=new Validator();
     public void gameStart(){
-
+        BaseballGame baseballGame=new BaseballGame();
         System.out.println("숫자를 입력해주세요");
         try {
             validator.duplicateCheck(sc.nextInt());
