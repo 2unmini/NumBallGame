@@ -1,6 +1,5 @@
 package BaseballLv1;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GameDisplay {
@@ -11,14 +10,12 @@ public class GameDisplay {
         BaseballGame baseballGame=new BaseballGame();
         while(check) {
             System.out.println("숫자를 입력해주세요");
-            int num = 0;
-            try {
-                num = sc.nextInt();
-                validator.duplicateCheck(num);
-            } catch (InputMismatchException e) {
-                System.out.println("[Error] 숫자를 입력해주세요");
+            int num=validator.wholeCheck(sc.nextLine());
+            if(num!=0){
+                check = baseballGame.printStrikeBall(baseballGame.countStrike(num), baseballGame.countBall(num));
+            }else {
+                check=false;
             }
-            check=baseballGame.printStrikeBall(baseballGame.countStrike(num), baseballGame.countBall(num));
         }
 
 

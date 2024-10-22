@@ -8,11 +8,11 @@ public class DuplicateCheck implements Validator {
     @Override
     public boolean validation(int num) {
         int[] nums = Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).toArray();
-        Set set = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             set.add(nums[i]);
         }
-        if(set.size()!=3){
+        if(set.size()<3){
             System.out.println("중복값이 입력되었습니다.");
             return false;
         }
