@@ -1,26 +1,18 @@
 package BaseballLv1;
 
-import java.util.regex.Pattern;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Stream;
 
 public class Validator {
-    private String num;
-    private  final String REGEXP_PATTERN_NUMBER = "^[\\d]*$";
-    public void numberChecking(int num){
-        this.num=String.valueOf(num);
-        if(!Pattern.matches(REGEXP_PATTERN_NUMBER,this.num)){
-            throw new NumberFormatException("숫자만 입력하세요.");
-        } else if (!duplicateCheck(this.num)) {
-            System.out.println("중복값이 입력되었습니다.");
-        }
+    public void duplicateCheck(int num){
 
-    }
-    public boolean duplicateCheck(String num){
-        char[] nums=num.toCharArray();
-        for (int i=0;i<nums.length-1;i++){
-            if(nums[i]==nums[i+1]){
-                return false;
-            }
+        int nums[] = Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).toArray();
+        Set set = new HashSet<>(Arrays.asList(nums));
+            if(set.size()<3){
+                System.out.println("중복값이 입력되었습니다."); // 수정 요망
         }
-        return true;
     }
 }
