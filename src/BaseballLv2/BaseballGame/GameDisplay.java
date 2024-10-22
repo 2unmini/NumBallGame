@@ -23,7 +23,7 @@ public class GameDisplay {
                 while (check) {
                     System.out.println("숫자를 입력해주세요");
                     num = sc.nextLine();
-                    Validator[] validators = {new DigitsCheck(), new DuplicateCheck(),new ExceedOneCheck(),new NumberCheck()};
+                    Validator[] validators = {new NumberCheck(),new DigitsCheck(), new DuplicateCheck(),new ExceedOneCheck()};
                     for (Validator validator : validators) {
                         if (!validator.validation(num)) {
                             answer=-1;
