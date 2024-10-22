@@ -6,11 +6,12 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 public class BaseballGame {
-    private int cntBall = 0;
-    private int cntStrike = 0;
+    int cntBall = 0;
+    int cntStrike = 0;
     private ArrayList<Integer> list;
     BaseballGame(){
         this.list = RandomNumber();
+        System.out.println(list);
     }
 
     private ArrayList<Integer> RandomNumber() {
@@ -23,11 +24,14 @@ public class BaseballGame {
         return list;
     }
     public int countBall(int num) {
-        while (num > 0) {
-            if (this.list.contains(num % 10)) {
-                this.cntBall++;
+        int[] nums = Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).toArray();
+        for(int i=0;i<this.list.size();i++){
+            for (int j = 0; j < nums.length; j++) {
+                if(i!=j && list.get(i).equals(nums[j])){
+                    cntBall++;
+                }
+
             }
-            num /= 10;
         }
         return this.cntBall;
     }
@@ -41,20 +45,22 @@ public class BaseballGame {
         return cntStrike;
     }
     public boolean printStrikeBall(int cntStrike, int cntBall) {
+        this.cntStrike=cntStrike;
+        this.cntBall=cntBall;
         if (cntStrike == 3) {
             System.out.println("정답입니다. 축하합니다.");
             return false;
         } else if (cntStrike == 0 && cntBall == 0) {
             System.out.println("아웃!!");
-        } else if (cntStrike == cntBall) {
+        } else if (cntStrike >0 && cntBall==0) {
             System.out.println(cntStrike + " 스트라이크");
-        }else if(cntStrike==0){
+        }else if(cntStrike ==0 && cntBall>0){
             System.out.println(cntBall+" 볼");
         } else {
             System.out.println(cntStrike + " 스트라이크 " + cntBall + " 볼");
         }
-        cntStrike=0;
-        cntBall=0;
+        this.cntStrike=0;
+        this.cntBall=0;
         return true;
 
     }
