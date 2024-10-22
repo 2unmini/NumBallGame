@@ -11,27 +11,15 @@ import java.util.stream.Stream;
 public class BaseballGame {
     int cntBall = 0;
     int cntStrike = 0;
-    private ArrayList<Integer> list;
-    BaseballGame(){
-        this.list = RandomNumber();
-        System.out.println(list);
-    }
+    NumberCreate randNumber = new NumberCreate();
 
-    private ArrayList<Integer> RandomNumber() {
-        HashSet<Integer> set = new HashSet<>();
-        Random random = new Random();
-        while (set.size() != 3) {
-            set.add(random.nextInt(9) + 1);
-        }
-        ArrayList<Integer> list = new ArrayList<>(set);
-        Collections.shuffle(list);
-        return list;
-    }
+
+
     public int countBall(int num) {
         int[] nums = Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).toArray();
-        for(int i=0;i<this.list.size();i++){
+        for(int i=0;i<randNumber.getRandList().size();i++){
             for (int j = 0; j < nums.length; j++) {
-                if(i!=j && list.get(i).equals(nums[j])){
+                if(i!=j && randNumber.getRandList().get(i).equals(nums[j])){
                     cntBall++;
                 }
 
@@ -41,8 +29,8 @@ public class BaseballGame {
     }
     public int countStrike(int num) {
         int[] nums = Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).toArray();
-        for (int i = 0; i < this.list.size(); i++) {
-            if (this.list.get(i).equals(nums[i])) {
+        for (int i = 0; i < randNumber.getRandList().size(); i++) {
+            if (this.randNumber.getRandList().get(i).equals(nums[i])) {
                 this.cntStrike++;
             }
         }

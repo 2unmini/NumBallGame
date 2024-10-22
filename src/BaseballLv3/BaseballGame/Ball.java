@@ -1,33 +1,19 @@
 package BaseballLv3.BaseballGame;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
+
 import java.util.stream.Stream;
 
 public class Ball {
     int cntBall = 0;
     int cntStrike = 0;
-    ArrayList<Integer> randList;
-    Ball(){
-        this.randList=RandomNumber();
+    NumberCreate randNumber = new NumberCreate();
 
-    }
-     private ArrayList<Integer> RandomNumber() {
-        HashSet<Integer> set = new HashSet<>();
-        Random random = new Random();
-        while (set.size() != 3) {
-            set.add(random.nextInt(9) + 1);
-        }
-        ArrayList<Integer> list = new ArrayList<>(set);
-        return list;
-    }
 
     public int countBall(int num) {
         int[] nums = Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).toArray();
-        for(int i=0;i<this.randList.size();i++){
+        for(int i=0;i<this.randNumber.getRandList().size();i++){
             for (int j = 0; j < nums.length; j++) {
-                if(i!=j && randList.get(i).equals(nums[j])){
+                if(i!=j && randNumber.getRandList().get(i).equals(nums[j])){
                     cntBall++;
                 }
 
@@ -38,8 +24,8 @@ public class Ball {
 
     public int countStrike(int num) {
         int[] nums = Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).toArray();
-        for (int i = 0; i < this.randList.size(); i++) {
-            if (this.randList.get(i).equals(nums[i])) {
+        for (int i = 0; i < randNumber.getRandList().size(); i++) {
+            if (this.randNumber.getRandList().get(i).equals(nums[i])) {
                 this.cntStrike++;
             }
         }
