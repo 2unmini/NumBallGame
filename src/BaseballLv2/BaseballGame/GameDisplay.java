@@ -1,9 +1,7 @@
 package BaseballLv2.BaseballGame;
 
-import BaseballLv2.Validation.DigitsCheck;
-import BaseballLv2.Validation.DuplicateCheck;
-import BaseballLv2.Validation.ExceedOneCheck;
-import BaseballLv2.Validation.Validator;
+import BaseballLv2.Validation.*;
+
 import java.util.Scanner;
 
 public class GameDisplay {
@@ -25,7 +23,7 @@ public class GameDisplay {
                 while (check) {
                     System.out.println("숫자를 입력해주세요");
                     num = sc.nextLine();
-                    Validator[] validators = {new DigitsCheck(), new DuplicateCheck(),new ExceedOneCheck()};
+                    Validator[] validators = {new DigitsCheck(), new DuplicateCheck(),new ExceedOneCheck(),new NumberCheck()};
                     for (Validator validator : validators) {
                         if (!validator.validation(num)) {
                             answer=-1;
