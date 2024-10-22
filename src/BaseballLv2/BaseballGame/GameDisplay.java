@@ -4,8 +4,6 @@ import BaseballLv2.Validation.DigitsCheck;
 import BaseballLv2.Validation.DuplicateCheck;
 import BaseballLv2.Validation.ExceedOneCheck;
 import BaseballLv2.Validation.Validator;
-
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GameDisplay {
@@ -19,6 +17,7 @@ public class GameDisplay {
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요.");
         System.out.println("1. 게임 시작하기 2. 종료하기");
         int startExit = sc.nextInt();
+        int answer=0;
         sc.nextLine();
         switch (startExit) {
             case 1:
@@ -29,8 +28,13 @@ public class GameDisplay {
                     Validator[] validators = {new DigitsCheck(), new DuplicateCheck(),new ExceedOneCheck()};
                     for (Validator validator : validators) {
                         if (!validator.validation(num)) {
+                            answer=-1;
                             break;
                         }
+                        answer=0;
+                    }
+                    if(answer==0) {
+                        check = ball.printStrikeBall(ball.countStrike(Integer.parseInt(num)), ball.countBall(Integer.parseInt(num)));
                     }
 
                 }
