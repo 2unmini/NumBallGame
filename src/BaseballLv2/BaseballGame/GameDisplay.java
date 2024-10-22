@@ -2,6 +2,7 @@ package BaseballLv2.BaseballGame;
 
 import BaseballLv2.Validation.DigitsCheck;
 import BaseballLv2.Validation.DuplicateCheck;
+import BaseballLv2.Validation.ExceedOneCheck;
 import BaseballLv2.Validation.Validator;
 
 import java.util.InputMismatchException;
@@ -25,7 +26,7 @@ public class GameDisplay {
                 while (check) {
                     System.out.println("숫자를 입력해주세요");
                     num = sc.nextLine();
-                    Validator[] validators = {new DigitsCheck(), new DuplicateCheck()};
+                    Validator[] validators = {new DigitsCheck(), new DuplicateCheck(),new ExceedOneCheck()};
                     for (Validator validator : validators) {
                         if (!validator.validation(num)) {
                             break;
