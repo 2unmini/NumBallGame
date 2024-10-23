@@ -1,6 +1,7 @@
 package BaseballLv3.BaseballGame;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -21,6 +22,7 @@ public class NumberCreate {
             set.add(random.nextInt(9) + 1);
         }
         ArrayList<Integer> list = new ArrayList<>(set);
+        Collections.shuffle(list);
         System.out.println(list);
         return list;
     }
