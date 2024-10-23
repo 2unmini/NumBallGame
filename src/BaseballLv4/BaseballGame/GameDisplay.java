@@ -1,16 +1,45 @@
 package BaseballLv4.BaseballGame;
 
+/*볼수,
+ 스크라이크
+ 볼수 스크라이크결과랑(출력)
+ 랜덤 수 출력해주는 기능
+ 유효성(자릿수, 중복 ,숫자인지,0이상인지)(출력)
+ 3~5까지 (출력)
+ 히스토리 기능 (출력)
+ 사용자 입력(입력)
+ 콘솔 창 기능(출력)
 
+ ScannerManager 메소드
+ display 콘솔에 이쁘게 출력하는 기능
+*/
+
+//
 
 import BaseballLv4.History;
+import BaseballLv4.ScannerManager;
 import BaseballLv4.SettingLevel;
 import BaseballLv4.Validation.*;
 
 import java.util.Scanner;
-
+// 이쁘게 출력하기
 public class GameDisplay {
 
-    public void gameStart() {
+    private boolean progress;
+
+    public void startDisplay(){// 게임 시작 화면
+        System.out.println("환영 합니다. 원하시는 번호를 입력해주세요.");
+        System.out.println("0. 자릿수 설정 1. 게임 시작하기 2. 게임 기록 보기 3. 종료하기");
+    }
+    public void PlayingDisplay(){ // 게임 진행 중 화면 or 볼수 스트라이크 결과를 여기다 출력?
+
+    }
+
+    public void endDisplay(){ // 게임 종료 화면
+        System.out.println("< 숫자 야구 게임을 종료합니다. >");
+    }
+
+    /*public void gameStart() {
         boolean check = true;
         History history = new History();
         Scanner sc = new Scanner(System.in);
@@ -82,5 +111,5 @@ public class GameDisplay {
                 }
             }
         }
-    }
+    }*/
 }

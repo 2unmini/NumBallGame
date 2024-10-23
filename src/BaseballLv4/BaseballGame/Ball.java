@@ -3,6 +3,7 @@ package BaseballLv4.BaseballGame;
 
 import java.util.stream.Stream;
 
+/*
 public class Ball {
     int cntBall = 0;
     int cntStrike = 0;
@@ -63,6 +64,7 @@ public class Ball {
     }
 
 
+*/
 
 
-}
+//}

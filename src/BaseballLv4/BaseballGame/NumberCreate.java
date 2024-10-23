@@ -6,7 +6,25 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class NumberCreate {
-    private ArrayList<Integer> randList;
+    // 랜덤수 생성만 담당
+    private ArrayList<Integer> randlist;
+
+    public void generate(){
+        HashSet<Integer> hashSet = new HashSet<>();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /*private ArrayList<Integer> randList;
 
     public ArrayList<Integer> getRandList() {
         return randList;
@@ -28,4 +46,5 @@ public class NumberCreate {
         System.out.println(list);
         return list;
     }
+     */
 }
