@@ -6,8 +6,12 @@ import java.util.stream.Stream;
 public class Ball {
     int cntBall = 0;
     int cntStrike = 0;
-    NumberCreate randNumber = new NumberCreate();
-
+    NumberCreate randNumber;
+    int size;
+    Ball(String size) {
+        this.size=Integer.parseInt(size);
+        randNumber = new NumberCreate(size);
+    }
 
 
     public int countBall(int num) {
@@ -36,7 +40,7 @@ public class Ball {
     public boolean printStrikeBall(int cntStrike, int cntBall) {
         this.cntStrike=cntStrike;
         this.cntBall=cntBall;
-        if (cntStrike == 3) {
+        if (cntStrike == this.size) {
             System.out.println("정답입니다. 축하합니다.");
 
             return false;
