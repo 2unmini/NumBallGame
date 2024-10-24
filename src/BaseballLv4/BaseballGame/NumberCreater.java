@@ -5,12 +5,23 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Random;
 
-public class NumberCreate {
+public class NumberCreater {
     // 랜덤수 생성만 담당
+    private Random random ;
     private ArrayList<Integer> randlist;
+    private int size;
 
-    public void generate(){
-        HashSet<Integer> hashSet = new HashSet<>();
+    public ArrayList<Integer> generate(String level){
+        this.size=Integer.parseInt(level);
+        HashSet<Integer> set = new HashSet<>();
+        Random random = new Random();
+        while (set.size() !=this.size) {
+            set.add(random.nextInt(9) + 1);
+        }
+        ArrayList<Integer> list = new ArrayList<>(set);
+        Collections.shuffle(list);
+        System.out.println(list); // 컴파일용
+        return list;
     }
 
 

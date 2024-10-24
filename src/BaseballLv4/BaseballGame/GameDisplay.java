@@ -16,22 +16,19 @@ package BaseballLv4.BaseballGame;
 
 //
 
-import BaseballLv4.History;
-import BaseballLv4.ScannerManager;
-import BaseballLv4.SettingLevel;
-import BaseballLv4.Validation.*;
+import BaseballLv4.LevelManager;
 
-import java.util.Scanner;
 // 이쁘게 출력하기
 public class GameDisplay {
 
-    private boolean progress;
+
 
     public void startDisplay(){// 게임 시작 화면
         System.out.println("환영 합니다. 원하시는 번호를 입력해주세요.");
         System.out.println("0. 자릿수 설정 1. 게임 시작하기 2. 게임 기록 보기 3. 종료하기");
     }
-    public void PlayingDisplay(){ // 게임 진행 중 화면 or 볼수 스트라이크 결과를 여기다 출력?
+    public void LevelDisplay(){// 게임 진행 중 화면 or 볼수 스트라이크 결과를 여기다 출력?
+        System.out.println("설정하고자 하는 자릿수를 입력해주세요");
 
     }
 
