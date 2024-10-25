@@ -4,21 +4,13 @@ import java.util.ArrayList;
 import java.util.stream.Stream;
 
 public class Result {
-    //입력값 난이도 랜덤 넘
 
-    int cntBall=0;
-    int cntStrike=0;
+    int cntBall = 0;
+    int cntStrike = 0;
     int count = 1;
     private ArrayList<Integer> historyList = new ArrayList<>();
     private ArrayList<Integer> randList;
 
-    /*public Result(LevelManager levelManager){
-        validManager=new ValidManager(levelManager);
-        this.randomNumGenerator=new RandomNumGenerator(levelManager);
-        randomNumGenerator.generate();
-    }*/
-
-    //History history;
     public int countBall(String input) {
         int[] nums = Stream.of(input.split("")).mapToInt(Integer::parseInt).toArray();
         for (int i = 0; i < this.randList.size(); i++) {
@@ -26,7 +18,6 @@ public class Result {
                 if (i != j && this.randList.get(i).equals(nums[j])) {
                     cntBall++;
                 }
-
             }
         }
         return this.cntBall;
@@ -75,7 +66,5 @@ public class Result {
             System.out.println((i + 1) + "번째 게임 : 시도 횟수 - " + historyList.get(i));
 
         }
-
     }
-
 }

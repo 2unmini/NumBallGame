@@ -4,33 +4,16 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
+/*
+            todo
+            예외 던지기
+             */
 
 public class ValidManager {
     private final String REGEX_PATTERN_NUMBER = "^[\\d]*$";
     private OutputManager outputManager;
-    private LevelManager levelManager;
-    String Message;
-
-    public String getInput() {
-        return input;
-    }
-
-    private String input;
+    String input;
     private int level;
-
-    public ValidManager() {
-
-    }
-
-    public ValidManager(LevelManager levelManager) {
-        this.levelManager=levelManager;
-        this.level=Integer.parseInt(levelManager.level);
-    }
-
-   /* public ValidManager(InputManager inputManager,LevelManager levelManager) {
-        this.input = inputManager.getNum();
-        this.level= Integer.parseInt(levelManager.level);
-    }*/
 
     public boolean levelCheck(String num) {
         if (numberCheck(num) && rangeCheck35(num)) {
@@ -38,22 +21,19 @@ public class ValidManager {
         }
         return false;
     }
-    public boolean integrationCheck(String num){
-        if(numberCheck(num)&&digitsCheck(num)&& exceedOneCheck(num) && duplicateCheck(num)){
-            this.input=num;
+
+    public boolean integrationCheck(String num) {
+        if (numberCheck(num) && digitsCheck(num) && exceedOneCheck(num) && duplicateCheck(num)) {
+            this.input = num;
             return true;
         }
         return false;
     }
 
-
     public boolean digitsCheck(String num) {
         int[] nums = Stream.of(num.split("")).mapToInt(Integer::parseInt).toArray();
         if (nums.length != this.level) {
-            /*
-            todo
-            예외 던지기
-             */
+
         }
         return true;
     }
@@ -71,7 +51,6 @@ public class ValidManager {
         return true;
     }
 
-
     public boolean exceedOneCheck(String num) {
         int[] nums = Stream.of(num.split("")).mapToInt(Integer::parseInt).toArray();
         for (int e : nums) {
@@ -83,7 +62,6 @@ public class ValidManager {
         return true;
 
     }
-
 
     public boolean numberCheck(String num) {
         if (!Pattern.matches(REGEX_PATTERN_NUMBER, num)) {
