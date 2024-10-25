@@ -26,5 +26,11 @@ public class InputManager {
     public String myInput() {
         return scanner.nextLine();
     }
+    public String errorInput(String error){
+        return error;
+    }
+    public String runInput(){
+        return scanner.nextLine();
+    }
 
 }

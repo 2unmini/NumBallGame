@@ -1,5 +1,7 @@
 package BaseballLv4;
 
+import java.util.ArrayList;
+
 public class OutputManager {
 
     public void startMessage() {
@@ -25,6 +27,12 @@ public class OutputManager {
 
     public void replayInputMessage() {
         System.out.println("다시 입력해주세요 오류 시 첫화면으로 돌아갑니다. ");
+    }
+    public void historyMessage(ArrayList<Integer> historyList){
+        for (int i = 0; i < historyList.size(); i++) {
+            System.out.println((i + 1) + "번째 게임 : 시도 횟수 - " + historyList.get(i));
+
+        }
     }
 
     public void errMessage(String massage) {

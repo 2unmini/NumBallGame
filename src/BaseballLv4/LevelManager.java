@@ -2,7 +2,6 @@ package BaseballLv4;
 
 
 public class LevelManager {
-    ValidManager validManager;
     static final String DEFAULT_LEVEL = "3";
     String level;
 
@@ -10,10 +9,12 @@ public class LevelManager {
         this.level = DEFAULT_LEVEL;
     }
 
-    public String setLevel(String level) {
+    public String controlLevel(String level) {
         this.level = level;
         return level;
 
     }
+
+
 
 }

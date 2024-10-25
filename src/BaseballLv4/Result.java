@@ -41,6 +41,9 @@ public class Result {
             System.out.println("정답입니다. 축하합니다.");
             count++;
             historyList.add(count);
+            count=0;
+            this.cntStrike = 0;
+            this.cntBall = 0;
             return false;
         } else if (this.cntStrike == 0 && this.cntBall == 0) {
             System.out.println("아웃!!");
@@ -61,10 +64,7 @@ public class Result {
 
     }
 
-    public void printHistory() {
-        for (int i = 0; i < historyList.size(); i++) {
-            System.out.println((i + 1) + "번째 게임 : 시도 횟수 - " + historyList.get(i));
-
-        }
+    public ArrayList<Integer> sendHistoryList(){
+        return historyList;
     }
 }

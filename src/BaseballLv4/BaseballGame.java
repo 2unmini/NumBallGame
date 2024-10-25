@@ -2,38 +2,32 @@ package BaseballLv4;
 
 import java.util.ArrayList;
 
-public class BaseballGame {
-    private InputManager inputManager; // 입력 클래스
-    private OutputManager outputManager; // 출력 클래스
-    private ValidManager validManager; // 유효성 검사 클래스
+public class BaseballGame { // 입력 클래스
+    private OutputManager outputManager; // 출력 클래스// 유효성 검사 클래스
     private LevelManager levelManager; // 레벨 관리 클래스
     private RandomNumGenerator randomNumGenerator; // 랜덤 수 생성 클래스
     private boolean running; // 게임 실행 상태
     private Result result; // 게임 결과 클래스
+    private ValidInputManager validInputManager;
 
     public BaseballGame() {
-        this.inputManager = new InputManager();
         this.outputManager = new OutputManager();
         this.levelManager = new LevelManager();
-        this.validManager = new ValidManager();
         this.randomNumGenerator = new RandomNumGenerator();
         this.result = new Result();
+        this.validInputManager=new ValidInputManager();
         this.running = true;
     }
 
     public void start() {
         while (this.running) {
             outputManager.startMessage();
-            String menuNum = inputManager.menuInput();
+            String menuNum = validInputManager.isValidMenu();
             switch (menuNum) {
                 case "0":
                     outputManager.levelSetMessage();
-                    String levelNum = inputManager.getLevel();// 레벨 입력
-                    if (!validManager.levelCheck(levelNum)) {// 레벨 검사
-                        outputManager.replayInputMessage();
-                        levelNum = inputManager.replayInput();
-                    }
-                    levelNum = levelManager.setLevel(levelNum); // 설정한 레벨
+                    String levelNum=validInputManager.isValidLevel(); //  레벨 입력
+                    levelNum = levelManager.controlLevel(levelNum); // 설정한 레벨
                     outputManager.changeLevelMessage(levelNum);
                     break;
                 case "1":
@@ -43,8 +37,10 @@ public class BaseballGame {
                     break;
                 case "2":
                     history();
+                    break;
                 case "3":
                     end();
+                    break;
                 default:
                     outputManager.errMessage("올바른 값이 아닙니다.");
             }
@@ -55,13 +51,7 @@ public class BaseballGame {
         boolean check = true;
         while (check) {
             outputManager.runningMessage();
-            String input = inputManager.myInput(); //나의 입력값
-            if (!validManager.integrationCheck(input)) {
-                input = inputManager.replayInput();
-            }
-            if (!validManager.integrationCheck(input)) {
-                outputManager.replayInputMessage();
-            }
+            String input = validInputManager.isValidInput();//나의 입력값
             check = result.printStrikeBall(randomList, input);
         }
     }
@@ -72,10 +62,8 @@ public class BaseballGame {
     }
 
     public void history() {
-        /*
-        todo
-         */
-        result.printHistory();
+
+        outputManager.historyMessage(result.sendHistoryList());
 
 
     }

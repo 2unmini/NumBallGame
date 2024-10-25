@@ -4,26 +4,28 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-/*
-            todo
-            예외 던지기
+            /*
+                todo
+                예외 던지기
+                메인에서 인풋 매니저를 사용하는데 Value 리턴값이 반환
              */
 
 public class ValidManager {
     private final String REGEX_PATTERN_NUMBER = "^[\\d]*$";
     private OutputManager outputManager;
     String input;
-    private int level;
+    private int level =3;
 
     public boolean levelCheck(String num) {
         if (numberCheck(num) && rangeCheck35(num)) {
+            this.level=Integer.parseInt(num);
             return true;
         }
         return false;
     }
 
     public boolean integrationCheck(String num) {
-        if (numberCheck(num) && digitsCheck(num) && exceedOneCheck(num) && duplicateCheck(num)) {
+        if ((numberCheck(num) && digitsCheck(num)) && (exceedOneCheck(num) && duplicateCheck(num))) {
             this.input = num;
             return true;
         }
@@ -32,8 +34,8 @@ public class ValidManager {
 
     public boolean digitsCheck(String num) {
         int[] nums = Stream.of(num.split("")).mapToInt(Integer::parseInt).toArray();
-        if (nums.length != this.level) {
-
+        if (nums.length != this.level ) {
+            throw new ArrayIndexOutOfBoundsException("자릿수가 맞지 않습니다.");
         }
         return true;
     }
@@ -44,7 +46,7 @@ public class ValidManager {
         for (int i = 0; i < nums.length; i++) {
             set.add(nums[i]);
         }
-        if (set.size() < this.level) {
+        if (set.size() < nums.length) {
             System.out.println("중복값이 입력되었습니다.");
             return false;
         }
@@ -72,7 +74,6 @@ public class ValidManager {
     }
 
     public boolean rangeCheck35(String num) {
-        Integer.parseInt(num);
         if (Integer.parseInt(num) > 5 || Integer.parseInt(num) < 2) {
             outputManager = new OutputManager();
             outputManager.errMessage("설정하신 난이도가 올바르지 않습니다");
