@@ -5,10 +5,10 @@ import java.util.stream.Stream;
 
 public class Result {
 
-    int cntBall = 0;
-    int cntStrike = 0;
-    int count = 1;
-    private ArrayList<Integer> historyList = new ArrayList<>();
+    int cntBall = 0; // 볼 수
+    int cntStrike = 0; // 스트라이크 수
+    int count = 1; // 진행 횟수
+    private final ArrayList<Integer> historyList = new ArrayList<>();
     private ArrayList<Integer> randList;
 
     public int countBall(String input) {
@@ -41,7 +41,7 @@ public class Result {
             System.out.println("정답입니다. 축하합니다.");
             count++;
             historyList.add(count);
-            count=0;
+            count = 0;
             this.cntStrike = 0;
             this.cntBall = 0;
             return false;
@@ -64,7 +64,7 @@ public class Result {
 
     }
 
-    public ArrayList<Integer> sendHistoryList(){
+    public ArrayList<Integer> sendHistoryList() {
         return historyList;
     }
 }

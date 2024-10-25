@@ -14,11 +14,11 @@ public class ValidManager {
     private final String REGEX_PATTERN_NUMBER = "^[\\d]*$";
     private OutputManager outputManager;
     String input;
-    private int level =3;
+    private int level = 3;
 
     public boolean levelCheck(String num) {
         if (numberCheck(num) && rangeCheck35(num)) {
-            this.level=Integer.parseInt(num);
+            this.level = Integer.parseInt(num);
             return true;
         }
         return false;
@@ -33,15 +33,21 @@ public class ValidManager {
     }
 
     public boolean digitsCheck(String num) {
-        int[] nums = Stream.of(num.split("")).mapToInt(Integer::parseInt).toArray();
-        if (nums.length != this.level ) {
+        int[] nums;
+        nums = Stream.of(num.split(""))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+        if (nums.length != this.level) {
             throw new ArrayIndexOutOfBoundsException("자릿수가 맞지 않습니다.");
         }
         return true;
     }
 
     public boolean duplicateCheck(String num) {
-        int[] nums = Stream.of(num.split("")).mapToInt(Integer::parseInt).toArray();
+        int[] nums;
+        nums = Stream.of(num.split(""))
+                .mapToInt(Integer::parseInt)
+                .toArray();
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             set.add(nums[i]);
@@ -54,7 +60,11 @@ public class ValidManager {
     }
 
     public boolean exceedOneCheck(String num) {
-        int[] nums = Stream.of(num.split("")).mapToInt(Integer::parseInt).toArray();
+        int[] nums;
+        nums = Stream.of(num.split(""))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
         for (int e : nums) {
             if (e == 0) {
                 System.out.println("입력한 수 중 0포함 ");

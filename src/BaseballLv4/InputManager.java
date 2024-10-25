@@ -4,11 +4,7 @@ import java.util.Scanner;
 
 public class InputManager {
 
-    private Scanner scanner = new Scanner(System.in);// Scanner타입 변수
-
-    public Scanner getScanner() {
-        return scanner;
-    }
+    private Scanner scanner = new Scanner(System.in);
 
 
     public String menuInput() {
@@ -26,10 +22,12 @@ public class InputManager {
     public String myInput() {
         return scanner.nextLine();
     }
-    public String errorInput(String error){
+
+    public String errorInput(String error) {
         return error;
     }
-    public String runInput(){
+
+    public String runInput() {
         return scanner.nextLine();
     }
 

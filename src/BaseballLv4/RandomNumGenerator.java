@@ -10,7 +10,6 @@ public class RandomNumGenerator {
     private ArrayList<Integer> randlist;
     private int level;
 
-
     public int getLevel() {
         return level;
     }
@@ -22,6 +21,7 @@ public class RandomNumGenerator {
         while (set.size() != this.level) {
             set.add(random.nextInt(9) + 1);
         }
+
         ArrayList<Integer> list = new ArrayList<>(set);
         Collections.shuffle(list);
         System.out.println(list); // 컴파일용
