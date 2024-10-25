@@ -23,7 +23,6 @@ public class NumberCreate {
         }
         ArrayList<Integer> list = new ArrayList<>(set);
         Collections.shuffle(list);
-        System.out.println(list);
         return list;
     }
 }

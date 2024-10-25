@@ -3,7 +3,7 @@ package BaseballLv3.Validation;
 
 import java.util.stream.Stream;
 
-public class DigitsCheck implements Validator {
+public class DigitsCheck implements Validator { // 3자리수가 맞는 지 확인하는 기능
     @Override
     public boolean validation(String num) {
         int[] nums= Stream.of(String.valueOf(num).split("")).mapToInt(Integer::parseInt).toArray();

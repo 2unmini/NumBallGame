@@ -1,61 +1,48 @@
-package BaseballLv4.BaseballGame;
+package BaseballLv4;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Random;
 
-public class NumberCreater {
-    // 랜덤수 생성만 담당
-    private Random random ;
+public class RandomNumGenerator {
+    private Random random;
     private ArrayList<Integer> randlist;
-    private int size;
+    private int level;
 
-    public ArrayList<Integer> generate(String level){
-        this.size=Integer.parseInt(level);
+
+    public int getLevel() {
+        return level;
+    }
+
+    public ArrayList<Integer> generate(LevelManager levelManager){
+        this.level=Integer.parseInt(levelManager.level);
         HashSet<Integer> set = new HashSet<>();
         Random random = new Random();
-        while (set.size() !=this.size) {
+        while (set.size() != this.level) {
             set.add(random.nextInt(9) + 1);
         }
         ArrayList<Integer> list = new ArrayList<>(set);
         Collections.shuffle(list);
         System.out.println(list); // 컴파일용
+        this.randlist=list;
         return list;
     }
+}
 
 
 
 
-
-
-
-
-
-
-
-
-    /*private ArrayList<Integer> randList;
-
-    public ArrayList<Integer> getRandList() {
-        return randList;
-    }
-    private int size;
-
-    public NumberCreate(String size){
-        this.randList= RandomNumber(size);
-    }
-    private ArrayList<Integer> RandomNumber(String size) {
-        this.size=Integer.parseInt(size);
+    /*public ArrayList<Integer> generate() {
         HashSet<Integer> set = new HashSet<>();
         Random random = new Random();
-        while (set.size() != this.size) {
+        while (set.size() != this.level) {
             set.add(random.nextInt(9) + 1);
         }
         ArrayList<Integer> list = new ArrayList<>(set);
         Collections.shuffle(list);
-        System.out.println(list);
+        System.out.println(list); // 컴파일용
+        this.randlist=list;
         return list;
-    }
-     */
-}
+    }*/

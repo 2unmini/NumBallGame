@@ -14,7 +14,7 @@ public class GameDisplay {
         Scanner sc = new Scanner(System.in);
         String num;
         while (check) {
-            Ball ball = new Ball();
+
             System.out.println("환영합니다! 원하시는 번호를 입력해주세요.");
             System.out.println("1. 게임 시작하기 2. 게임 기록 보기 3. 종료하기");
             int startExit = sc.nextInt();
@@ -25,7 +25,7 @@ public class GameDisplay {
                 switch (startExit) {
                     case 1:
                         //기능
-
+                        Ball ball = new Ball();
                         System.out.println("숫자를 입력해주세요");
                         num = sc.nextLine();
                         Validator[] validators = {new NumberCheck(), new DigitsCheck(), new DuplicateCheck(), new ExceedOneCheck()};

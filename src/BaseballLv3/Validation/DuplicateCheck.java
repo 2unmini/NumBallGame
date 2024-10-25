@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 
-public class DuplicateCheck implements Validator {
+public class DuplicateCheck implements Validator { // 중복 여부 판별 기능
     @Override
     public boolean validation(String num) {
         int[] nums = Stream.of(num.split("")).mapToInt(Integer::parseInt).toArray();

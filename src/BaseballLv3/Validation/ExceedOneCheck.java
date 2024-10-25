@@ -3,7 +3,7 @@ package BaseballLv3.Validation;
 
 import java.util.stream.Stream;
 
-public class ExceedOneCheck implements Validator {
+public class ExceedOneCheck implements Validator { // 0이상인지 판별하는 기능
     @Override
     public boolean validation(String num) {
         int[] nums = Stream.of(num.split("")).mapToInt(Integer::parseInt).toArray();

@@ -1,13 +1,11 @@
 package BaseballLv3.BaseballGame;
 
 
-import BaseballLv3.History;
-
 import java.util.stream.Stream;
 
 public class Ball {
-    int cntBall = 0;
-    int cntStrike = 0;
+    int cntBall = 0; // 볼 카운트
+    int cntStrike = 0; // 스트라이크 카운트
     NumberCreate randNumber = new NumberCreate();
 
 
@@ -40,7 +38,6 @@ public class Ball {
         this.cntBall=cntBall;
         if (cntStrike == 3) {
             System.out.println("정답입니다. 축하합니다.");
-
             return false;
         } else if (cntStrike == 0 && cntBall == 0 ) {
             System.out.println("아웃!!");
