@@ -4,11 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-            /*
-                todo
-                예외 던지기
-                메인에서 인풋 매니저를 사용하는데 Value 리턴값이 반환
-             */
 
 public class ValidManager {
     private final String REGEX_PATTERN_NUMBER = "^[\\d]*$";
@@ -38,7 +33,8 @@ public class ValidManager {
                 .mapToInt(Integer::parseInt)
                 .toArray();
         if (nums.length != this.level) {
-            throw new ArrayIndexOutOfBoundsException("자릿수가 맞지 않습니다.");
+            System.out.println("자릿수가 맞지 않습니다");
+            return false;
         }
         return true;
     }

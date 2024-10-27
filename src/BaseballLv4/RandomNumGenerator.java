@@ -10,10 +10,6 @@ public class RandomNumGenerator {
     private ArrayList<Integer> randlist;
     private int level;
 
-    public int getLevel() {
-        return level;
-    }
-
     public ArrayList<Integer> generate(LevelManager levelManager) {
         this.level = Integer.parseInt(levelManager.level);
         HashSet<Integer> set = new HashSet<>();

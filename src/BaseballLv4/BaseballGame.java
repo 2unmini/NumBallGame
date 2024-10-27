@@ -2,13 +2,13 @@ package BaseballLv4;
 
 import java.util.ArrayList;
 
-public class BaseballGame { // 입력 클래스
+public class BaseballGame {
     private OutputManager outputManager; // 출력 클래스
     private LevelManager levelManager; // 레벨 관리 클래스
     private RandomNumGenerator randomNumGenerator; // 랜덤 수 생성 클래스
     private boolean running; // 게임 실행 상태
     private Result result; // 게임 결과 클래스
-    private ValidInputManager validInputManager;
+    private ValidInputManager validInputManager; // 올바른 입력값 관리 클래스
 
     public BaseballGame() {
         this.outputManager = new OutputManager();
@@ -50,7 +50,7 @@ public class BaseballGame { // 입력 클래스
     }
 
     private static boolean isVaildLevel(String levelNum) {
-        if(levelNum.equals("error")) {
+        if (levelNum.equals("error")) {
             return true;
         }
         return false;
@@ -61,7 +61,7 @@ public class BaseballGame { // 입력 클래스
         while (check) {
             outputManager.runningMessage();
             String input = validInputManager.isValidInput();//나의 입력값
-            if(input.equals("error")){
+            if (input.equals("error")) {
                 continue;
             }
             check = result.printStrikeBall(randomList, input);

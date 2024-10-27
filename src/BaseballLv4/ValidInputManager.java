@@ -1,7 +1,5 @@
 package BaseballLv4;
 
-import java.util.InputMismatchException;
-
 public class ValidInputManager {
     private InputManager inputManager;
     private ValidManager validManager;
