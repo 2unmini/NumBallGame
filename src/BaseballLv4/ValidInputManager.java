@@ -14,7 +14,7 @@ public class ValidInputManager {
     public String isValidMenu() {
         String menuNum = inputManager.menuInput();
         if (!validManager.numberCheck(menuNum)) {
-            throw new InputMismatchException("유효하지 않은 메뉴 값 입니다.");
+            return "error";
         }
         return menuNum;
     }
@@ -22,7 +22,7 @@ public class ValidInputManager {
     public String isValidLevel() {
         String level = inputManager.getLevel();
         if (!validManager.levelCheck(level)) {
-            throw new IllegalArgumentException("유효하지 않은 레벨 값입니다: ");
+            return "error";
         }
         return level;
     }
@@ -30,7 +30,7 @@ public class ValidInputManager {
     public String isValidInput() {
         String input = inputManager.myInput();
         if (!validManager.integrationCheck(input)) {
-            throw new NumberFormatException("유효하지 않은 값입니다.");
+            return "error";
         }
         return input;
     }

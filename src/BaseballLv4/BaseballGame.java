@@ -26,7 +26,9 @@ public class BaseballGame { // 입력 클래스
             switch (menuNum) {
                 case "0":
                     outputManager.levelSetMessage();
-                    String levelNum = validInputManager.isValidLevel(); //  레벨 입력
+                    String levelNum = validInputManager.isValidLevel();//  레벨 입력
+                    if (isVaildLevel(levelNum))
+                        continue;
                     levelNum = levelManager.controlLevel(levelNum); // 설정한 레벨
                     outputManager.changeLevelMessage(levelNum);
                     break;
@@ -47,11 +49,21 @@ public class BaseballGame { // 입력 클래스
         }
     }
 
+    private static boolean isVaildLevel(String levelNum) {
+        if(levelNum.equals("error")) {
+            return true;
+        }
+        return false;
+    }
+
     public void run(ArrayList<Integer> randomList) {
         boolean check = true;
         while (check) {
             outputManager.runningMessage();
             String input = validInputManager.isValidInput();//나의 입력값
+            if(input.equals("error")){
+                continue;
+            }
             check = result.printStrikeBall(randomList, input);
         }
     }
